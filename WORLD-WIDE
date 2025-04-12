@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterBrink Logistics | Global Shipping Solutions</title>
+    <style>
+        :root {
+            --primary: #0056a8;
+            --secondary: #003366;
+            --accent: #ff6600;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 50, 100, 0.8), rgba(0, 50, 100, 0.8)), 
+                        url('https://i.postimg.cc/D0JhzH9v/depositphotos-70611897-stock-photo-cargo-ship.webp');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto;
+        }
+
+        .services, .tracking, .contact, .about {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .service h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .tracking {
+            background-color: var(--light);
+        }
+
+        .tracking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            background-color: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        #trackingResult {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: none;
+        }
+
+        .tracking-status {
+            text-align: left;
+        }
+
+        .tracking-status h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .tracking-status p {
+            margin-bottom: 0.8rem;
+        }
+
+        .tracking-status p strong {
+            color: var(--secondary);
+        }
+
+        .error {
+            color: #dc3545;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1.5rem;
+            }
+
+            nav ul li {
+                margin: 0 0.8rem;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                display: block;
+                margin: 0 auto 1rem;
+                width: 80%;
+            }
+
+            .btn-outline {
+                margin-left: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 70vh;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">INTER<span>BRINK</span> LOGISTICS</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#tracking">Tracking</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Your Trusted Global Logistics Partner</h2>
+            <p>Delivering excellence across borders with innovative supply chain solutions tailored to your business needs.</p>
+            <div>
+                <a href="#services" class="btn">Our Services</a>
+                <a href="#contact" class="btn btn-outline">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Logistics Services</h2>
+                <p>Comprehensive solutions for all your supply chain needs</p>
+            </div>
+            <div class="service-grid">
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Freight Forwarding</h3>
+                    <p>End-to-end freight solutions by air, sea, and land with customs clearance and documentation handled by our experts.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Ocean Shipping</h3>
+                    <p>Cost-effective container shipping with FCL and LCL options, port-to-port or door-to-door service.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Air Cargo</h3>
+                    <p>Express air freight services for time-sensitive shipments with real-time tracking and temperature control options.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Warehousing</h3>
+                    <p>Secure storage facilities with inventory management, pick & pack, and distribution services worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tracking" class="tracking">
+        <div class="container">
+            <div class="section-title">
+                <h2>Track Your Shipment</h2>
+                <p>Real-time visibility of your cargo throughout the journey</p>
+            </div>
+            <div class="tracking-form">
+                <div class="form-group">
+                    <input type="text" id="trackingNumber" placeholder="Enter your tracking number (e.g. IBL123456789)">
+                </div>
+                <button onclick="trackShipment()" class="btn">Track Now</button>
+                <div id="trackingResult"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About InterBrink Logistics</h2>
+                <p>Building bridges in global trade since 1995</p>
+            </div>
+            <div class="about-content">
+                <p>InterBrink Logistics is a leading global logistics provider specializing in customized supply chain solutions. With over 25 years of experience, we've built a network of trusted partners across 150 countries to ensure seamless movement of your goods.</p>
+                <p>Our team of logistics experts combines industry knowledge with cutting-edge technology to deliver reliable, cost-effective solutions tailored to your specific requirements. From small parcels to full container loads, we handle each shipment with the utmost care and precision.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>We're here to help with your logistics needs</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Headquarters</h3>
+                    <p>123 Logistics Plaza<br>Rotterdam, Netherlands 3011 AA</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <p>+31 10 123 4567<br>+31 10 987 6543 (24/7)</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@interbrinklogistics.com<br>support@interbrinklogistics.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>InterBrink Logistics</h3>
+                <p>Your trusted partner in global supply chain solutions, delivering excellence across borders with innovative logistics services.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#tracking">Tracking</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Freight Forwarding</a></li>
+                    <li><a href="#">Ocean Shipping</a></li>
+                    <li><a href="#">Air Cargo</a></li>
+                    <li><a href="#">Warehousing</a></li>
+                    <li><a href="#">Customs Clearance</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 InterBrink Logistics. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function trackShipment() {
+            const trackingNumber = document.getElementById('trackingNumber').value.trim();
+            const trackingResult = document.getElementById('trackingResult');
+            
+            // Clear previous results
+            trackingResult.innerHTML = '';
+            trackingResult.style.display = 'none';
+            
+            if (!trackingNumber) {
+                trackingResult.innerHTML = '<p class="error">Please enter a tracking number.</p>';
+                trackingResult.style.display = 'block';
+                return;
+            }
+            
+            // Show loading state
+            trackingResult.innerHTML = '<p><i class="fas fa-spinner fa-spin"></i> Searching for your shipment...</p>';
+            trackingResult.style.display = 'block';
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Sample tracking responses based on number format
+                if (trackingNumber.match(/^IBL\d{9}$/i)) {
+                    // Standard shipment
+                    trackingResult.innerHTML = `
+                        <div class="tracking-status">
+                            <h3>Shipment #${trackingNumber.toUpperCase()}</h3>
+                            <p><strong>Status:</strong> <span style="color: #28a745;">In Transit</span></p>
+                            <p><strong>Origin:</strong> Rotterdam, Netherlands</p>
+                            <p><strong>Destination:</strong> Shanghai, China</p>
+                            <p><strong>Last Update:</strong> ${new Date().toLocaleString()} - Departed from Singapore Hub</p>
+                            <p><strong>Estimated Arrival:</strong> ${new Date(Date.now() + 5*24*60*60*1000).toDateString()}</p>
+                            <p><strong>Carrier:</strong> InterBrink Logistics - Ocean Freight</p>
+                        </div>
+                    `;
+                } else if (trackingNumber.match(/^IBX\d{9}$/i)) {
+                    // Express shipment
+                    trackingResult.innerHTML = `
+                        <div class="tracking-status">
+                            <h3>Express Shipment #${trackingNumber.toUpperCase()}</h3>
+                            <p><strong>Status:</strong> <span style="color: #17a2b8;">Customs Cleared</span></p>
+                            <p><strong>Origin:</strong> Chicago, USA</p>
+                            <p><strong>Destination:</strong> Berlin, Germany</p>
+                            <p><strong>Last Update:</strong> ${new Date().toLocaleString()} - Cleared customs in Frankfurt</p>
+                            <p><strong>Estimated Delivery:</strong> ${new Date(Date.now() + 1*24*60*60*1000).toDateString()}</p>
+                            <p><strong>Carrier:</strong> InterBrink Logistics - Air Express</p>
+                        </div>
+                    `;
+                } else if (trackingNumber.match(/^DEL\d{9}$/i)) {
+                    // Delivered shipment
+                    trackingResult.innerHTML = `
+                        <div class="tracking-status">
+                            <h3>Shipment #${trackingNumber.toUpperCase()}</h3>
+                            <p><strong>Status:</strong> <span style="color: #6c757d;">Delivered</span></p>
+                            <p><strong>Delivered On:</strong> ${new Date(Date.now() - 2*24*60*60*1000).toDateString()} at 14:30</p>
+                            <p><strong>Received By:</strong> Reception (Front Desk)</p>
+                            <p><strong>Destination:</strong> Tokyo, Japan</p>
+                            <p><strong>Carrier:</strong> InterBrink Logistics - Ground Delivery</p>
+                        </div>
+                    `;
+                } else {
+                    // Invalid number
+                    trackingResult.innerHTML = `
+                        <p class="error">No shipment found with tracking number: ${trackingNumber}</p>
+                        <p>Please check your tracking number and try again. Valid InterBrink tracking numbers begin with IBL, IBX, or DEL followed by 9 digits.</p>
+                    `;
+                }
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
